@@ -23,24 +23,7 @@ public class ShanSimpleGUI {
 		JButton blue = new JButton("Blue");
 		JButton red = new JButton("Red");
 		
-		//add buttons to frame
-		frame.add(circle);
-		frame.add(square);
-		frame.add(blue);
-		frame.add(red);
-		
-		
-		
-		
-		//set the frame to close after close the windows
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		/////////////////////////////////????????
-		frame.pack();
-		//set size of the frame
-		frame.setSize(500, 300);
-		//set visible
-		frame.setVisible(true);
-		
+
 	}
 
 }

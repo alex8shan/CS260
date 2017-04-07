@@ -30,12 +30,8 @@ public class ShanSimpleGUI {
 		frame.add(red);
 		
 		
-		
-		
 		//set the frame to close after close the windows
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		/////////////////////////////////????????
-		frame.pack();
 		//set size of the frame
 		frame.setSize(500, 300);
 		//set visible

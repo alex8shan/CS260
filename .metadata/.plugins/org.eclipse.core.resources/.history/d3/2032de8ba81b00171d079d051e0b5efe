@@ -1,0 +1,19 @@
+import java.awt.*;
+import javax.swing.*;
+
+/**
+ * @author  Minghao Shan
+ * @version 04/07/2017
+ *
+ */
+public class ShanSimpleGUI {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
