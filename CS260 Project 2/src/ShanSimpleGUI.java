@@ -2,7 +2,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import edu.truman.cs260.shan.drawIcon.iconShape;
+
+import edu.truman.cs260.shan.Icon.iconShape;
 
 /**
  * This is the main class that have four buttons. When user
@@ -35,28 +36,28 @@ public class ShanSimpleGUI {
 		frame.add(blue);
 		frame.add(red);
 		frame.add(myLabel);
-		
+		//add action listener to circle button
 		circle.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
 				icon.setShape("Circle");
 				myLabel.repaint();
 			}
 		});
-		
+		//add action listener to square button
 		square.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
 				icon.setShape("Square");
 				myLabel.repaint();
 			}
 		});
-		
+		//add action listener to blue button
 		blue.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
 				icon.setColor(Color.blue);
 				myLabel.repaint();
 			}
 		});
-		
+		//add action listener to red button
 		red.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
 				icon.setColor(Color.red);
@@ -71,7 +72,7 @@ public class ShanSimpleGUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		//set size of the frame
-		frame.setSize(500, 300);
+		frame.setSize(500, 200);
 		//set visible
 		frame.setVisible(true);
 	}

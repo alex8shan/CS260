@@ -1,4 +1,4 @@
-package edu.truman.cs260.shan.drawIcon;
+package edu.truman.cs260.shan.Icon;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
@@ -10,13 +10,21 @@ import java.awt.geom.Rectangle2D;
  */
 
 public class iconShape implements Icon{
+	/**
+	 * The string that identifies which shape the user want.
+	 */
 	private String iconShape = "";
+	/**
+	 * The color that identifies which color the user want.
+	 */
 	private Color iconColor;
+	/**
+	 * The size of the icon.
+	 */
 	private int size;
 	
 	/**
-	 * This is the constructor that sets the size
-	 * of the icon.
+	 * This is the constructor that sets the size of the icon.
 	 * @param size	The size of the icon.
 	 */
 	public iconShape(int size){
@@ -25,7 +33,7 @@ public class iconShape implements Icon{
 	
 	/**
 	 * This method determines shape and color the user want and display
-	 * and paint them
+	 * and paint them.
 	 * @param c	The parent component of the icon.
 	 * @param g	The graphics context.
 	 * @param x	The horizontal coordinate from the left-up corner of the icon.
