@@ -4,10 +4,17 @@ import javax.swing.Icon;
 
 public class ShapeContainer implements Icon {
     private int size;
+    private SquareShape square;
+
+    //create square,circle and triangle shape
     /**
-     * Rturns the height of the icon.
+     * Returns the height of the icon.
      * @return height of the icon.
      */
+    public ShapeContainer(int size){
+    	this.size = size;
+    	square = new SquareShape(size);
+    }
     public int getIconHeight(){
         return size;
     }
@@ -18,6 +25,7 @@ public class ShapeContainer implements Icon {
     public int getIconWidth(){
         return size;
     }
+
     /**
      * Paint the icon.
      * @param c	The parent component of the icon.
@@ -26,8 +34,12 @@ public class ShapeContainer implements Icon {
 	 * @param y	The vertical coordinate from the left-up corner of the icon.
      */
     public void paintIcon(Component c, Graphics g, int x, int y){
+
         Graphics2D g2 = (Graphics2D) g;
+        square.draw(g2);
+        square.move();
         //set the color of icon
-        //draw the shape
+        //call the draw and move method of different shapes
+        
     }
 }
