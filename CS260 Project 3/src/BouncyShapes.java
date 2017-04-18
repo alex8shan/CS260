@@ -7,14 +7,6 @@ import edu.truman.cs260.shan.Shape.MovableShape;
 
 public class BouncyShapes {
 	public static void main(String[] args) {
-		//create shape variable
-		final int DELAY = 24;
-
-		// create frame
-		// create components:icons, Jlabel
-		// add action listener for icons
-		// set layout to frame
-		//finish frame and everything
 		
 		JFrame frame = new JFrame();//create a frame
 		FlowLayout layout = new FlowLayout();//create a layout
@@ -23,44 +15,45 @@ public class BouncyShapes {
 		JButton circle = new JButton("Circle");
 		JButton square = new JButton("Square");
 		JButton triangle = new JButton("Triangle");
-		final ShapeContainer icon = new ShapeContainer(500);
-		final JLabel myLabel = new JLabel(icon);
+		final ShapeContainer icon = new ShapeContainer(500);//create the background
+		final JLabel myLabel = new JLabel(icon);//create the label
 		
 		//add buttons and labels to frame
 		frame.add(circle);
 		frame.add(square);
 		frame.add(triangle);
 		frame.add(myLabel);
-//		//add action listener to circle button
-//		circle.addActionListener(new ActionListener(){
-//			public void actionPerformed(ActionEvent event){
-//				icon.setShape("Circle");
-//				myLabel.repaint();
-//			}
-//		});
-		//add action listener to square button
-		ActionListener moveSquare = new ActionListener(){
+		
+
+		ActionListener moveShape = new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				myLabel.repaint();
 			}
 		};
-		Timer tSquare = new Timer(100, moveSquare);
+		Timer t = new Timer(100, moveShape);
+		
+		//add action listener to square button
 		square.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
-				tSquare.start();
+				icon.setShape("square");
+				t.start();
 			}
 		});
 
-		
-		
-//		//add action listener to blue button
-//		blue.addActionListener(new ActionListener(){
-//			public void actionPerformed(ActionEvent event){
-//				icon.setColor(Color.blue);
-//				myLabel.repaint();
-//			}
-//		});
-
+		//add action listener to circle button
+		circle.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent event){
+				icon.setShape("circle");
+				t.start();
+			}
+		});
+		//add action listener to triangle button
+		triangle.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent event){
+				icon.setShape("triangle");
+				t.start();
+			}
+		});
 		
 		//set the layout to the frame
 		frame.setLayout(layout);

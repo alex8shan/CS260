@@ -16,8 +16,8 @@ class SquareShape implements MovableShape{
 	public SquareShape(int size){
 		//assign random dx & dy
 		this.size = size;
-		dx = new Random().nextInt(5) + 1;
-		dy = new Random().nextInt(5) + 1;
+		dx = new Random().nextInt(5);
+		dy = new Random().nextInt(5);
 	}
 	/**
 	 * 
@@ -30,10 +30,6 @@ class SquareShape implements MovableShape{
 		//inverse the dx move
 		if((0 > xCoor) && (xCoor > size)){
 			dx = -dx;
-			System.out.println(dx);
-			System.out.println(dx);
-			System.out.println(dx);
-			System.out.println(dx);
 		}
 		//inverse the dy move
 		if((0 > yCoor) && (yCoor > size)){

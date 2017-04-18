@@ -1,19 +1,18 @@
 package edu.truman.cs260.shan.Shape;
 import java.awt.*;
-import javax.swing.Icon;
+import java.util.ArrayList;
+import javax.swing.*;
 
 public class ShapeContainer implements Icon {
     private int size;
-    private SquareShape square;
-
-    //create square,circle and triangle shape
+    private String shape;
+    private ArrayList<MovableShape> list = new ArrayList<MovableShape>();
     /**
      * Returns the height of the icon.
      * @return height of the icon.
      */
     public ShapeContainer(int size){
     	this.size = size;
-    	square = new SquareShape(size);
     }
     public int getIconHeight(){
         return size;
@@ -34,12 +33,23 @@ public class ShapeContainer implements Icon {
 	 * @param y	The vertical coordinate from the left-up corner of the icon.
      */
     public void paintIcon(Component c, Graphics g, int x, int y){
-
+    	if(shape.equals("square")){
+        	list.add(new SquareShape(size));
+            //set the color of icon
+    	}
+    	if(shape.equals("circle")){
+    		list.add(new CircleShape(size));
+    	}
+    	if(shape.equals("triangle")){
+    		list.add(new TriangleShape(size));
+    	}
         Graphics2D g2 = (Graphics2D) g;
-        square.draw(g2);
-        square.move();
-        //set the color of icon
-        //call the draw and move method of different shapes
-        
+        for(MovableShape i : list){
+        	i.draw(g2);
+        	i.move();
+        }
+    }
+    public void setShape(String shape){
+    	this.shape = shape;    	
     }
 }

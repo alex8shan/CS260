@@ -2,6 +2,9 @@ package edu.truman.cs260.shan.Shape;
 import java.awt.Graphics2D;
 
 class TriangleShape implements MovableShape{
+	public TriangleShape(int size){
+		
+	}
     public void move(){
     	
     }
