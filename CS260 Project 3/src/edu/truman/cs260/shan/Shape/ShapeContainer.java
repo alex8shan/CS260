@@ -33,6 +33,19 @@ public class ShapeContainer implements Icon {
 	 * @param y	The vertical coordinate from the left-up corner of the icon.
      */
     public void paintIcon(Component c, Graphics g, int x, int y){
+    	
+        Graphics2D g2 = (Graphics2D) g;
+        for(MovableShape i : list){
+        	i.draw(g2);
+        }
+    }
+    public void move(){
+    	for(MovableShape i: list){
+    		i.move();
+    	}
+    }
+    public void setShape(String shape){
+    	this.shape = shape;    
     	if(shape.equals("square")){
         	list.add(new SquareShape(size));
             //set the color of icon
@@ -43,13 +56,5 @@ public class ShapeContainer implements Icon {
     	if(shape.equals("triangle")){
     		list.add(new TriangleShape(size));
     	}
-        Graphics2D g2 = (Graphics2D) g;
-        for(MovableShape i : list){
-        	i.draw(g2);
-        	i.move();
-        }
-    }
-    public void setShape(String shape){
-    	this.shape = shape;    	
     }
 }

@@ -9,6 +9,7 @@ class SquareShape implements MovableShape{
 	private int dy;
 	private int yCoor = 0;
 	private int size;
+	private int shapeSize;
 	/**
 	 * 
 	 * @param size
@@ -16,8 +17,8 @@ class SquareShape implements MovableShape{
 	public SquareShape(int size){
 		//assign random dx & dy
 		this.size = size;
-		dx = new Random().nextInt(5);
-		dy = new Random().nextInt(5);
+		dx = new Random().nextInt(5) + 1;
+		dy = new Random().nextInt(5) + 1;
 	}
 	/**
 	 * 
@@ -28,11 +29,11 @@ class SquareShape implements MovableShape{
 		yCoor = yCoor + dy;
 		
 		//inverse the dx move
-		if((0 > xCoor) && (xCoor > size)){
+		if((0 > xCoor) || (xCoor > size)){
 			dx = -dx;
 		}
 		//inverse the dy move
-		if((0 > yCoor) && (yCoor > size)){
+		if((0 > yCoor) || (yCoor > size)){
 			dy = -dy;
 		}
 		System.out.println(xCoor + "   " + yCoor);

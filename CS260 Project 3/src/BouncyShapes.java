@@ -27,16 +27,16 @@ public class BouncyShapes {
 
 		ActionListener moveShape = new ActionListener(){
 			public void actionPerformed(ActionEvent e){
+				icon.move();
 				myLabel.repaint();
 			}
 		};
-		Timer t = new Timer(100, moveShape);
+		Timer t = new Timer(42, moveShape);
 		
 		//add action listener to square button
 		square.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
 				icon.setShape("square");
-				t.start();
 			}
 		});
 
@@ -44,16 +44,16 @@ public class BouncyShapes {
 		circle.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
 				icon.setShape("circle");
-				t.start();
 			}
 		});
 		//add action listener to triangle button
 		triangle.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
-				icon.setShape("triangle");
-				t.start();
+				icon.setShape("triangle"); 
 			}
 		});
+		
+		t.start();
 		
 		//set the layout to the frame
 		frame.setLayout(layout);
@@ -62,12 +62,9 @@ public class BouncyShapes {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		//set size of the frame
-		frame.setSize(800, 500);
+		frame.setSize(800, 600);
 		//set visible
 		frame.setVisible(true);
-
-		
-
 	}
 
 }
