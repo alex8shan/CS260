@@ -1,4 +1,5 @@
 package edu.truman.cs260.shan.Shape;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.util.Random;
@@ -10,15 +11,19 @@ class SquareShape implements MovableShape{
 	private int yCoor = 0;
 	private int size;
 	private int shapeSize;
+	private Random r = new Random();
+	private Color c = new Color(r.nextInt(256),r.nextInt(256),r.nextInt(256));
 	/**
 	 * 
 	 * @param size
 	 */
-	public SquareShape(int size){
+	public SquareShape(int size, int shapeSize){
 		//assign random dx & dy
 		this.size = size;
-		dx = new Random().nextInt(5) + 1;
-		dy = new Random().nextInt(5) + 1;
+		this.shapeSize = shapeSize;
+		dx = r.nextInt(5) + 1;
+		dy = r.nextInt(5) + 1;
+
 	}
 	/**
 	 * 
@@ -29,20 +34,20 @@ class SquareShape implements MovableShape{
 		yCoor = yCoor + dy;
 		
 		//inverse the dx move
-		if((0 > xCoor) || (xCoor > size)){
+		if((0 > xCoor) || (xCoor + shapeSize > size)){
 			dx = -dx;
 		}
 		//inverse the dy move
-		if((0 > yCoor) || (yCoor > size)){
+		if((0 > yCoor) || (yCoor + shapeSize > size)){
 			dy = -dy;
 		}
-		System.out.println(xCoor + "   " + yCoor);
     }
     /**
      * 
      */
     public void draw(Graphics2D g2){
-    	Rectangle2D square = new Rectangle2D.Double(xCoor, yCoor, 50, 50);
+    	Rectangle2D square = new Rectangle2D.Double(xCoor, yCoor, shapeSize, shapeSize);
+    	g2.setColor(c);
     	g2.fill(square);
     }
 }

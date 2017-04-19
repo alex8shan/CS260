@@ -12,10 +12,10 @@ public class BouncyShapes {
 		FlowLayout layout = new FlowLayout();//create a layout
 		
 		//create buttons
-		JButton circle = new JButton("Circle");
-		JButton square = new JButton("Square");
-		JButton triangle = new JButton("Triangle");
-		final ShapeContainer icon = new ShapeContainer(500);//create the background
+		JButton circle = new JButton("Add a Circle");
+		JButton square = new JButton("Add a Square");
+		JButton triangle = new JButton("Add a Triangle");
+		final ShapeContainer icon = new ShapeContainer(500, 50);//create the background
 		final JLabel myLabel = new JLabel(icon);//create the label
 		
 		//add buttons and labels to frame
@@ -62,7 +62,7 @@ public class BouncyShapes {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		//set size of the frame
-		frame.setSize(800, 600);
+		frame.setSize(900, 600);
 		//set visible
 		frame.setVisible(true);
 	}
