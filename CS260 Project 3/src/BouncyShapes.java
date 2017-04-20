@@ -1,10 +1,13 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
 import edu.truman.cs260.shan.Shape.ShapeContainer;
-import edu.truman.cs260.shan.Shape.MovableShape;
 
+/**
+ * This is the main class of the program. It creates frames, components, layout and actionListeners.
+ * @author Minghao Shan
+ *
+ */
 public class BouncyShapes {
 	public static void main(String[] args) {
 		

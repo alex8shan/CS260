@@ -4,7 +4,11 @@ import java.awt.Graphics2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.util.Random;
-
+/**
+ * THis class creates triangle shapes.
+ * @author Minghao Shan
+ *
+ */
 class TriangleShape implements MovableShape{
 	private int size;
 	private int shapeSize;
@@ -15,7 +19,12 @@ class TriangleShape implements MovableShape{
 	private Random r = new Random();
 	private Color c = new Color(r.nextInt(256),r.nextInt(256),r.nextInt(256));
 	
-	
+	/**
+	 * Constructor of TriangleShape. It initialize the shape size and the background
+	 * size, as well as randomly generate the movement speed of the shape.
+	 * @param size	The size of the background
+	 * @param shapeSize	The size of the shape
+	 */
 	public TriangleShape(int size, int shapeSize){
 		this.size = size;
 		this.shapeSize = shapeSize;
@@ -23,6 +32,10 @@ class TriangleShape implements MovableShape{
 		dx = r.nextInt(5) + 1;
 		dy = r.nextInt(5) + 1;
 	}
+	/**
+	 * Moves the triangle shape and reverse the movement of triangle if it touches the 
+	 * boarder of the background.
+	 */
     public void move(){
     	//move the coordinate
 		xCoor = xCoor + dx;
@@ -36,7 +49,10 @@ class TriangleShape implements MovableShape{
 		if((0 > yCoor) || (yCoor + shapeSize > size)){
 			dy = -dy;
 		}
-    }
+    }/**
+	 * Draw the triangle shape.
+	 * @param g2 the 2D graphics context.
+	 */
     public void draw(Graphics2D g2){
     	Point2D point1 = new Point2D.Double(shapeSize/2 + xCoor,0 + yCoor);
     	Point2D point2 = new Point2D.Double(0 + xCoor,shapeSize + yCoor);
