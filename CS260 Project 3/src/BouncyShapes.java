@@ -65,7 +65,7 @@ public class BouncyShapes {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		//set size of the frame
-		frame.setSize(900, 600);
+		frame.setSize(1000, 600);
 		//set visible
 		frame.setVisible(true);
 	}
