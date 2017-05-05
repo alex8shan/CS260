@@ -1,4 +1,4 @@
-package edu.truman.cs260.shan.draggablecar;
+package edu.truman.cs260.shan.draggableshape;
 
 import java.awt.Graphics2D;
 import java.awt.Point;
