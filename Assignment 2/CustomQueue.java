@@ -88,7 +88,28 @@ public class CustomQueue {
 	 */
 	public void display() 
 	{
-		
+		if(front > rear)
+		{
+			for(int i = front; i < arrayQueue.length; i ++)
+			{
+				System.out.println(arrayQueue[i] + " -> ");
+			}
+			for(int j = 0; j < rear; j ++)
+			{
+				System.out.println(arrayQueue[j] + " -> ");
+			}
+			System.out.println(arrayQueue[rear]);
+		} else if (front == rear)
+		{
+			System.out.println(front);
+		}else
+		{
+			for (int k = front; k < rear; k++)
+			{
+				System.out.println(arrayQueue[k] + " -> ");
+			}
+			System.out.println(arrayQueue[rear]);
+		}
 	}
 	
 	/**
