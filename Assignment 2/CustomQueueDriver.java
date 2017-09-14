@@ -36,7 +36,10 @@ public class CustomQueueDriver {
 				q.display();
 				break;
 			case 5:
-				System.out.println(q.peek());
+				if(q.peek() == -1)
+					System.out.println("The queue is empty");
+				else
+					System.out.println("The next element is " + q.peek());
 				break;
 			case 6:
 				System.out.println("Size = " + q.getSize());

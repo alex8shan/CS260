@@ -7,6 +7,7 @@ public class CustomQueue {
 	private int[] arrayQueue;
 	private int front;
 	private int rear;
+	private int size;
 	/**
 	 * Constructor
 	 */
@@ -21,17 +22,15 @@ public class CustomQueue {
 	 */
 	public void enqueue (int val)
 	{
-		if(rear < arrayQueue.length) {/////////////////////<= or <?
-			arrayQueue[rear] = val;
-			System.out.println(arrayQueue[rear]);
-			rear++;
+		size++;
+		if(size > 10)
+		{
+			size = 10;
 		}
-//		
-//		else if (front != 0){
-//			arrayQueue[0] = val;
-//			rear = 0;
-//		}
-		else {
+		if(rear < arrayQueue.length) {
+			arrayQueue[rear] = val;
+			rear++;
+		} else {
 			System.out.println("The queue is full, value not accepted.");
 		}
 	}
@@ -40,22 +39,35 @@ public class CustomQueue {
 	 */
 	public void dequeue ()
 	{
+
 		if(isEmpty())
 		{
 			System.out.println("The queue is empty.");
 		} else if(front == arrayQueue.length)
 		{
-			if(rear == arrayQueue.length - 1)
+			if(size == 1)
 			{
 				arrayQueue = new int[10];
 				front = 0;
-				rear = -1;
+				rear = 0;
+				size--;
 			} else 
 			{
 				front = 0;
+				size--;
 			}
 		} else {
-			front ++;
+			if(size == 1)
+			{
+				arrayQueue = new int[10];
+				front = 0;
+				rear = 0;
+				size--;
+			} else 
+			{
+				front ++;
+				size--;
+			}
 		}
 	}
 	
@@ -67,14 +79,13 @@ public class CustomQueue {
 	{
 		if(isEmpty())
 		{
-			System.out.println("The queue is empty.");//////////////////////////
 			return -1;
 		} else if(front == arrayQueue.length)
 		{
 			return arrayQueue[0];
 		} else
 		{
-			return arrayQueue[front + 1];
+			return arrayQueue[front];
 		}
 	}
 	
@@ -83,8 +94,8 @@ public class CustomQueue {
 	 * @return
 	 */
 	public int getSize()
-	{
-		return arrayQueue.length + 1;
+	{ 
+		return size;
 	}
 	
 	/**
@@ -92,27 +103,29 @@ public class CustomQueue {
 	 */
 	public void display() 
 	{
+		System.out.println("front " + front);
+		System.out.println("rear " + rear);
 		if(front > rear)
 		{
 			for(int i = front; i < arrayQueue.length; i ++)
 			{
-				System.out.println(arrayQueue[i] + " -> ");
+				System.out.print(arrayQueue[i] + " -> ");
 			}
 			for(int j = 0; j < rear; j ++)
 			{
-				System.out.println(arrayQueue[j] + " -> ");
+				System.out.print(arrayQueue[j] + " -> ");
 			}
 			System.out.println(arrayQueue[rear]);
 		} else if (front == rear)
 		{
 			System.out.println(front);
-		}else
+		} else
 		{
-			for (int k = front; k < rear; k++)
+			for (int k = front; k < rear - 1; k++)
 			{
-				System.out.println(arrayQueue[k] + " -> ");
+				System.out.print(arrayQueue[k] + " -> ");
 			}
-			System.out.println(arrayQueue[rear]);
+			System.out.println(arrayQueue[rear -1]);
 		}
 	}
 	
@@ -122,7 +135,7 @@ public class CustomQueue {
 	 */
 	public boolean isEmpty()
 	{
-		if(front == 0 || rear == 0)
+		if(front == 0 && rear == 0)
 		{
 			System.out.println("empty");
 			return true;
