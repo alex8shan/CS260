@@ -1,11 +1,10 @@
 import java.util.Scanner;
 
-public class ListStackDriver {
+public class ArrayStackDriver {
 	public static void main(String[]args)
 	{
 		Scanner scan = new Scanner(System.in);
-		
-		ListStack s = new ListStack();
+		ArrayStack s = new ArrayStack();
 
 		while(true)
 		{
@@ -26,7 +25,6 @@ public class ListStackDriver {
 				break;
 			case 2: //pop
 				s.pop();
-				if(s.isEmpty())
 				System.out.println("Element popped");
 				break;
 			case 3: //getSize

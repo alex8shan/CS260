@@ -24,9 +24,30 @@ public class CustomQueueDriver {
 			{
 			case 1: //Enqueue
 				System.out.println("Enter integer element to insert");
+				q.enqueue(scan.nextInt());
+				break;
+			case 2:
+				q.dequeue();
+				break;
+			case 3:
+				System.out.println(q.isEmpty()?"Empty":"Not Empty");
+				break;
+			case 4:
+				q.display();
+				break;
+			case 5:
+				System.out.println(q.peek());
+				break;
+			case 6:
+				System.out.println("Size = " + q.getSize());
+				break;
+			case 7:
+				scan.close();
+				System.exit(0);
+			default:
+				System.out.println("wrong Entry \n");
+				break;
 			}
 		}
 	}
-
-
 }

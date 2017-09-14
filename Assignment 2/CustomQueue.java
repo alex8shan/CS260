@@ -13,28 +13,32 @@ public class CustomQueue {
 	public CustomQueue() {
 		arrayQueue = new int[10];
 		front = 0;
-		rear = -1;
+		rear = 0;
 	}
 	/**
 	 * 
 	 * @param val
 	 */
-	public void enQueue (int val)
+	public void enqueue (int val)
 	{
 		if(rear < arrayQueue.length) {/////////////////////<= or <?
-			rear++;
 			arrayQueue[rear] = val;
-		}else if (front != 0){
-			arrayQueue[0] = val;
-			rear = 0;
-		}else {
+			System.out.println(arrayQueue[rear]);
+			rear++;
+		}
+//		
+//		else if (front != 0){
+//			arrayQueue[0] = val;
+//			rear = 0;
+//		}
+		else {
 			System.out.println("The queue is full, value not accepted.");
 		}
 	}
 	/**
 	 * 
 	 */
-	public void deQueue ()
+	public void dequeue ()
 	{
 		if(isEmpty())
 		{
@@ -59,7 +63,7 @@ public class CustomQueue {
 	 * 
 	 * @return
 	 */
-	public int Peek ()
+	public int peek ()
 	{
 		if(isEmpty())
 		{
@@ -118,8 +122,11 @@ public class CustomQueue {
 	 */
 	public boolean isEmpty()
 	{
-		if(front == 0 || rear == -1)
+		if(front == 0 || rear == 0)
+		{
+			System.out.println("empty");
 			return true;
+		}
 		else
 			return false;
 	}
