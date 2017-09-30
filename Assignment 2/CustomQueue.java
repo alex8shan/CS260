@@ -1,13 +1,14 @@
 /**
- * 
+ * This 
  * @author Minghao Shan
- *
+ * @version 9/14/2017
  */
 public class CustomQueue {
 	private int[] arrayQueue;
 	private int front;
 	private int rear;
 	private int size;
+	
 	/**
 	 * Constructor
 	 */
@@ -16,9 +17,10 @@ public class CustomQueue {
 		front = 0;
 		rear = 0;
 	}
+	
 	/**
-	 * 
-	 * @param val
+	 * This method enqueues a value in the queue.
+	 * @param val	The value to be enqueue into the queue
 	 */
 	public void enqueue (int val)
 	{
@@ -34,8 +36,9 @@ public class CustomQueue {
 			System.out.println("The queue is full, value not accepted.");
 		}
 	}
+	
 	/**
-	 * 
+	 * This method dequeues a value in the queue.
 	 */
 	public void dequeue ()
 	{
@@ -51,8 +54,7 @@ public class CustomQueue {
 				front = 0;
 				rear = 0;
 				size--;
-			} else 
-			{
+			} else {
 				front = 0;
 				size--;
 			}
@@ -63,8 +65,7 @@ public class CustomQueue {
 				front = 0;
 				rear = 0;
 				size--;
-			} else 
-			{
+			} else {
 				front ++;
 				size--;
 			}
@@ -72,8 +73,8 @@ public class CustomQueue {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * This method looks at the next node that is going to be popped.
+	 * @return	the value that is popped next.
 	 */
 	public int peek ()
 	{
@@ -83,15 +84,14 @@ public class CustomQueue {
 		} else if(front == arrayQueue.length)
 		{
 			return arrayQueue[0];
-		} else
-		{
+		} else {
 			return arrayQueue[front];
 		}
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * This method gets the size of the queue.
+	 * @return	The size of the queue.
 	 */
 	public int getSize()
 	{ 
@@ -99,7 +99,7 @@ public class CustomQueue {
 	}
 	
 	/**
-	 * 
+	 * This method displayed the entire queue.
 	 */
 	public void display() 
 	{
@@ -119,8 +119,7 @@ public class CustomQueue {
 		} else if (front == rear)
 		{
 			System.out.println(front);
-		} else
-		{
+		} else {
 			for (int k = front; k < rear - 1; k++)
 			{
 				System.out.print(arrayQueue[k] + " -> ");
@@ -130,8 +129,8 @@ public class CustomQueue {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * This method determines if the queue is empty.
+	 * @return true if queue is empty and false if queue is not empty.
 	 */
 	public boolean isEmpty()
 	{
@@ -139,8 +138,8 @@ public class CustomQueue {
 		{
 			System.out.println("empty");
 			return true;
-		}
-		else
+		} else {
 			return false;
+		}
 	}
 }

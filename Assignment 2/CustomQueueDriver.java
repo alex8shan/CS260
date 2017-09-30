@@ -1,10 +1,17 @@
 import java.util.Scanner;
-
+/**
+ * This is the driver class for queue implemented by arrays.
+ * @author Minghao Shan
+ * @version 9/14/2017
+ */
 public class CustomQueueDriver {
+/**
+ * driver method 
+ * @param args	Stores the terminal input
+ */
 	public static void main(String[]args)
 	{
 		Scanner scan = new Scanner(System.in);
-		/* Creating objects for class linkedlist*/
 		CustomQueue q = new CustomQueue();
 
 		while(true)
@@ -12,7 +19,7 @@ public class CustomQueueDriver {
 			System.out.println("\n Queue Options \n");
 			System.out.println("1. Enqueue");
 			System.out.println("2. Dequeue");
-			System.out.println("3. Check Empty?");
+			System.out.println("3. Check Empty");
 			System.out.println("4. Display");
 			System.out.println("5. Peek");
 			System.out.println("6. Get Size");
@@ -36,13 +43,14 @@ public class CustomQueueDriver {
 				q.display();
 				break;
 			case 5:
-				if(q.peek() == -1)
+				if(q.peek() == -1) {
 					System.out.println("The queue is empty");
-				else
+				} else {
 					System.out.println("The next element is " + q.peek());
+				}
 				break;
 			case 6:
-				System.out.println("Size = " + q.getSize());
+				System.out.println("Size is " + q.getSize());
 				break;
 			case 7:
 				scan.close();

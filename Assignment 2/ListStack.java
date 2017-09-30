@@ -1,28 +1,42 @@
-
+/**
+ * This class implements a stack using singly linked list.
+ * @author Minghao Shan
+ * @version 9/14/2017
+ */
 public class ListStack {
-	private CustomLinkedList list = new CustomLinkedList();
+	private CustomLinkedList list;
+	
+	/**
+	 * Constructor
+	 */
 	public ListStack() {
-		
+		list  = new CustomLinkedList();
 	}
+	
+	/**
+	 * This method pushes a value in the queue.
+	 * @param val	The value to be pushed into the stack
+	 */
 	public void push(int val) 
 	{
 		list.insertAtEnd(val);
 	}
+	
+	/**
+	 * This method pops a value out of the stack
+	 */
 	public void pop()
 	{
-		if(list.getStart() == null)
-		{
-			System.out.println("Stack is empty");
-		}
-		else
-		{
 			list.deleteAtPos(list.getSize());
-		}
 	}
+	
+	/**
+	 * This method displays the entire stack
+	 */
 	public void display() 
 	{
 		Node start = list.getStart();
-		System.out.print("\nLinked List = ");
+		System.out.print("\n Stack is ");
 		if(list.getSize() == 0)
 		{
 			System.out.print("empty\n");
@@ -43,15 +57,26 @@ public class ListStack {
 		}
 		System.out.print(aNode.getData() + "\n");
 	}
+	
+	/**
+	 * This method gets the size of the stack
+	 * @return	size of the stack
+	 */
 	public int getSize()
 	{
 		return list.getSize();
 	}
+	
+	/**
+	 * This method determines if the stack is empty
+	 * @return	true if the stack is not empty and vice versa.
+	 */
 	public boolean isEmpty() 
 	{
-		if(list.isEmpty())
+		if(list.isEmpty()) {
 			return true;
-		else 
+		} else {
 			return false;
+		}
 	}
 }

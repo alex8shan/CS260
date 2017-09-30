@@ -1,6 +1,14 @@
 import java.util.Scanner;
-
+/**
+ * This class is the driver class for stack implemented by linked list.
+ * @author Minghao Shan
+ * @version 9/14/2017
+ */
 public class ListStackDriver {
+	/**
+	 * driver method 
+	 * @param args	Stores the terminal input
+	 */
 	public static void main(String[]args)
 	{
 		Scanner scan = new Scanner(System.in);
@@ -14,6 +22,8 @@ public class ListStackDriver {
 			System.out.println("2. Pop element");
 			System.out.println("3. Get size");
 			System.out.println("4. Display");
+			System.out.println("5. Check Empty");
+			System.out.println("6. Exit");
 
 			int choice = scan.nextInt();
 
@@ -25,9 +35,12 @@ public class ListStackDriver {
 				s.push(val);
 				break;
 			case 2: //pop
-				s.pop();
-				if(s.isEmpty())
-				System.out.println("Element popped");
+				if(s.isEmpty()) {
+					System.out.println("Stack is empty");
+				} else {
+					s.pop();
+					System.out.println("Element popped");
+				}
 				break;
 			case 3: //getSize
 				System.out.println("The size is " + s.getSize());
@@ -35,6 +48,12 @@ public class ListStackDriver {
 			case 4: //display
 				s.display();
 				break;
+			case 5:
+				System.out.println(s.isEmpty()?"Empty":"Not Empty");
+				break;
+			case 6:
+				scan.close();
+				System.exit(0);
 			default:
 				System.out.println("wrong Entry \n");
 				break;
