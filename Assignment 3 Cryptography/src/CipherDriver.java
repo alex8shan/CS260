@@ -1,101 +1,115 @@
 import java.io.IOException;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
-import java.io.FileNotFoundException;
-import java.lang.IllegalStateException;
-import java.nio.file.Files;
-import java.util.NoSuchElementException;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import java.io.*;
+
+
+
+//C:\Users\FIrefly\OneDrive\Github\CS260\Assignment 3 Cryptography\input.txt
 
 public class CipherDriver {
 	private static Scanner in = new Scanner(System.in);
-	private static Scanner fileReader = new Scanner(System.in);
+	private static Scanner inputReader;
+	private static Scanner encryptReader;
+	private String encryptedInput;
+	private String decryptedInput;
+	private static String output = "";
 	
-	public static void openFile(Path filePath)
-	{
-		//open files
-		//What should "file.txt" be?
-		try
-		{
-			fileReader = new Scanner(filePath);
-		}
-		catch (IOException ioException)
-		{
-			System.out.println("Error opening file. Terminating.");
-			System.exit(1);
-		}
-	}
 
-	public static void Encrypt()
+	public static void encrypt() throws Exception
 	{
-		try
+		FileWriter fWriter = new FileWriter("encrypt.txt");
+		BufferedWriter bWriter = new BufferedWriter(fWriter);
+		
+		while (inputReader.hasNext())
 		{
-			while(fileReader.hasNext())
+			String input = inputReader.nextLine();
+			for ( int i = 0; i < input.length();i++)
 			{
-				//change the info, or read into buffer
-				
+				char inputChar = input.charAt(i);
+				if(inputChar != ' ')
+				{
+					inputChar = (char) (inputChar + 3);
+				}
+				output = output + inputChar;
 			}
 		}
-		catch(NoSuchElementException elementException)
-		{
-			System.err.println("File improperly formed. Terminiting.");
-		}
-		catch(IllegalStateException stateException)
-		{
-			System.err.println("Error reading from file. Terminating.");
-		}
+		bWriter.write(output);
+		bWriter.close();
+		fWriter.close();
 	}
 	
-	public static void Decrypt()
+	public static void decrypt() throws Exception
 	{
-		try
+		FileWriter fWriter = new FileWriter("decrypt.txt");
+		BufferedWriter bWriter = new BufferedWriter(fWriter);
+		
+		while (encryptReader.hasNext())
 		{
-			while(fileReader.hasNext())
+			String input = encryptReader.nextLine();
+			for ( int i = 0; i < input.length();i++)
 			{
-				//change the info, or read into buffer
-				
+				char inputChar = input.charAt(i);
+				if(inputChar != ' ')
+				{
+					inputChar = (char) (inputChar - 3);
+				}
+				output = output + inputChar;
 			}
 		}
-		catch(NoSuchElementException elementException)
-		{
-			System.err.println("File improperly formed. Terminiting.");
-		}
-		catch(IllegalStateException stateException)
-		{
-			System.err.println("Error reading from file. Terminating.");
-		}
+		bWriter.write(output);
+		bWriter.close();
+		fWriter.close();
 	}
 	
 	public static void closeFile()
 	{
-		if(fileReader != null)
-			fileReader.close();
+		if(inputReader != null)
+			inputReader.close();
+		if(encryptReader != null)
+			encryptReader.close();
 	}
 	
 	public static void main(String args[]) {
 
+		try {
+			inputReader = new Scanner (Paths.get("input.txt"));
+			encryptReader = new Scanner (Paths.get("encrypt.txt"));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
-		System.out.println("Enter file or directory name");
-		
-		//create Path object based on user input
-		
-		Path path = Paths.get(in.nextLine());
-
-		
-		openFile(path);
-		
-		System.out.println("Choose 1 for Encryption, 2 for Decryption");
+		System.out.println("Choose 1 for encryption, 2 for decryption");
 		int option = in.nextInt();
 		
-		if(option == 1) {
+		if(option == 1) 
+		{
 			//do encryption
-			Encrypt();
+			try 
+			{
+				encrypt();
+				System.out.println("Encryption is finished");
+			}
+			catch (Exception e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			closeFile();
-		} else if (option == 2) {
+		} else if (option == 2) 
+		{
 			//do decryption
-			Decrypt();
+			try 
+			{
+				decrypt();
+				System.out.println("Decryption is finished");
+			} 
+			catch (Exception e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			closeFile();
 		} else {
 			System.out.println("Wrong entry \n");

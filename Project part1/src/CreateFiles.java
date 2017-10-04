@@ -5,6 +5,7 @@
  */
 public class CreateFiles {
 	public static void main(String args[]) {
-		
+		//create files
 	}
 }
+
