@@ -18,10 +18,10 @@ public class CipherDriver {
 	private static String output = "";
 	
 /**
- * 
- * @throws Exception
+ * This is the encryption method
+ * @throws IOException
  */
-	public static void encrypt() throws Exception
+	public static void encrypt() throws IOException
 	{
 		//Set the Buffered Writer to write on the encrypted file
 		FileWriter fWriter = new FileWriter("encrypt.txt");
@@ -48,10 +48,10 @@ public class CipherDriver {
 		fWriter.close();
 	}
 	/**
-	 * 
-	 * @throws Exception
+	 * This is the decryption method
+	 * @throws IOException
 	 */
-	public static void decrypt() throws Exception
+	public static void decrypt() throws IOException
 	{
 		//Set the Buffered Writer to write on the decrypted file
 		FileWriter fWriter = new FileWriter("decrypt.txt");
@@ -77,7 +77,7 @@ public class CipherDriver {
 		fWriter.close();
 	}
 	/**
-	 * 
+	 * method that close the scanner
 	 */
 	public static void closeFile()
 	{
@@ -95,8 +95,7 @@ public class CipherDriver {
 			inputReader = new Scanner (Paths.get("input.txt"));
 			encryptReader = new Scanner (Paths.get("encrypt.txt"));
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			System.err.println("Error opening file input.txt or encrypt.txt");
 		}
 		
 		System.out.println("Choose 1 for encryption, 2 for decryption");
@@ -109,10 +108,9 @@ public class CipherDriver {
 				encrypt();
 				System.out.println("Encryption is finished");
 			}
-			catch (Exception e) 
+			catch (IOException e) 
 			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.err.println("Error writing encrypted file.");
 			}
 			closeFile();
 		} else if (option == 2) 
@@ -122,10 +120,9 @@ public class CipherDriver {
 				decrypt();
 				System.out.println("Decryption is finished");
 			} 
-			catch (Exception e) 
+			catch (IOException e) 
 			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.err.println("Error writing deprypted file.");
 			}
 			closeFile();
 		} else {
