@@ -3,34 +3,43 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 import java.io.*;
 
-
-
-//C:\Users\FIrefly\OneDrive\Github\CS260\Assignment 3 Cryptography\input.txt
+/**
+ * This class reads from a input.txt in the same directory as the program, and encrypt it to encrypt.txt or decrypt it 
+ * to decrypt.txt based on the user's choice.
+ * 
+ * @author Minghao Shan
+ * @version 10/4/2017
+ */
 
 public class CipherDriver {
 	private static Scanner in = new Scanner(System.in);
 	private static Scanner inputReader;
 	private static Scanner encryptReader;
-	private String encryptedInput;
-	private String decryptedInput;
 	private static String output = "";
 	
-
+/**
+ * 
+ * @throws Exception
+ */
 	public static void encrypt() throws Exception
 	{
+		//Set the Buffered Writer to write on the encrypted file
 		FileWriter fWriter = new FileWriter("encrypt.txt");
 		BufferedWriter bWriter = new BufferedWriter(fWriter);
 		
 		while (inputReader.hasNext())
 		{
 			String input = inputReader.nextLine();
+			
 			for ( int i = 0; i < input.length();i++)
 			{
 				char inputChar = input.charAt(i);
+				//encryption
 				if(inputChar != ' ')
 				{
 					inputChar = (char) (inputChar + 3);
 				}
+				//add encrypted character to String for output
 				output = output + inputChar;
 			}
 		}
@@ -38,9 +47,13 @@ public class CipherDriver {
 		bWriter.close();
 		fWriter.close();
 	}
-	
+	/**
+	 * 
+	 * @throws Exception
+	 */
 	public static void decrypt() throws Exception
 	{
+		//Set the Buffered Writer to write on the decrypted file
 		FileWriter fWriter = new FileWriter("decrypt.txt");
 		BufferedWriter bWriter = new BufferedWriter(fWriter);
 		
@@ -50,10 +63,12 @@ public class CipherDriver {
 			for ( int i = 0; i < input.length();i++)
 			{
 				char inputChar = input.charAt(i);
+				//decryption
 				if(inputChar != ' ')
 				{
 					inputChar = (char) (inputChar - 3);
 				}
+				//add decrypted character to String for output
 				output = output + inputChar;
 			}
 		}
@@ -61,7 +76,9 @@ public class CipherDriver {
 		bWriter.close();
 		fWriter.close();
 	}
-	
+	/**
+	 * 
+	 */
 	public static void closeFile()
 	{
 		if(inputReader != null)
@@ -69,7 +86,9 @@ public class CipherDriver {
 		if(encryptReader != null)
 			encryptReader.close();
 	}
-	
+	/**
+	 * 	main program
+	 */
 	public static void main(String args[]) {
 
 		try {
@@ -85,7 +104,6 @@ public class CipherDriver {
 		
 		if(option == 1) 
 		{
-			//do encryption
 			try 
 			{
 				encrypt();
@@ -99,7 +117,6 @@ public class CipherDriver {
 			closeFile();
 		} else if (option == 2) 
 		{
-			//do decryption
 			try 
 			{
 				decrypt();

@@ -1,0 +1,79 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Scanner;
+
+public class SplitFiles {
+	private static File file;
+	private static Scanner readFile;
+	private static Scanner in;
+	private static BufferedWriter bWriter;
+	private static BufferedReader bReader;
+	private static String filePath;
+
+	
+	public static void splitFile(Path path) throws IOException
+	{
+		int size = (int) Files.size(path);
+		int extraSize = size%5;
+		int splitSize = size/5; 
+		bReader = new BufferedReader(new FileReader(filePath));
+		while(readFile.hasNext())
+		{
+			for(int i = 0; i < 5; i++)
+			{
+				file = new File(size/(1024*1024) + "Mb_" + i + ".txt");
+				bWriter = new BufferedWriter(new FileWriter(file));
+				if(extraSize > 0)
+				{
+					for(int j = 0; j < (splitSize + 1); j++)
+					{
+						char data = (char) bReader.read();
+						bWriter.write(data);
+					}
+					extraSize--;
+				}
+				else
+				{
+					for(int j = 0; j < (splitSize); j++)
+					{
+						char data = (char) bReader.read();
+						bWriter.write(data);
+					}
+				}
+				System.out.println("File " + i +" has finished");
+			}
+		}
+	}
+	
+	public static void closeFile() throws IOException
+	{
+		readFile.close();
+		bWriter.close();
+		bReader.close();
+		in.close();
+		System.out.println("Program terminates");
+	}
+	
+	public static void main(String args[])
+	{
+		in = new Scanner(System.in);
+		System.out.println("Enter file or directory name:");
+		filePath = in.nextLine();
+		Path path = Paths.get(filePath);
+		try {
+			readFile = new Scanner(path);
+			splitFile(path);
+			closeFile();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+}
