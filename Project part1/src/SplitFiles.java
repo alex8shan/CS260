@@ -36,6 +36,7 @@ public class SplitFiles {
 			BufferedWriter bWriter = new BufferedWriter(new FileWriter(file));
 			if(extraSize > 0)
 			{
+				//reads a single character
 				for(int j = 0; j < (splitSize + 1); j++)
 				{
 					char data = (char) bReader.read();
