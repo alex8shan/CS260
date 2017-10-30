@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch)-CreateFiles",
+            "request": "launch",
+            "mainClass": "CreateFiles",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MergeFile",
+            "request": "launch",
+            "mainClass": "MergeFile",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-SplitFiles",
+            "request": "launch",
+            "mainClass": "SplitFiles",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-checkNum",
+            "request": "launch",
+            "mainClass": "checkNum",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Attach)",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": 0
+        }
+    ]
+}
