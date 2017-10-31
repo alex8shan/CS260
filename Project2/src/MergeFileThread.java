@@ -5,16 +5,27 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
+/**
+ * 
+ * @author Minghao Shan
+ * @version 10/30/2017
+ */
 public class MergeFileThread extends Thread{
 	int threadNum;
 	String fileName;
 	static BufferedWriter writer;
+	/**
+	 * This is the constructor of MergeFileThread class.
+	 * @param thread
+	 * @param name
+	 */
 	public MergeFileThread(int thread, String name) {
 		threadNum = thread;
 		fileName = name;
 	}
-
+	/**
+	 * 
+	 */
 	public void run() {
 		System.out.println("Thread " + threadNum + " is generated");
 		try {

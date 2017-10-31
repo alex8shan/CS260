@@ -15,7 +15,9 @@ public class MergeFile {
 	static BufferedReader reader;
 	static String fileName;
 	static int fileSize;
-	
+	/**
+	 * 
+	 */
 	public static void createThreads() {
 		//create 5 threads
 		MergeFileThread t0 = new MergeFileThread(0,fileName);
@@ -23,8 +25,6 @@ public class MergeFile {
 		MergeFileThread t2 = new MergeFileThread(2,fileName);
 		MergeFileThread t3 = new MergeFileThread(3,fileName);
 		MergeFileThread t4 = new MergeFileThread(4,fileName);
-		
-
 		
 		try {
 			t0.start();
@@ -41,15 +41,11 @@ public class MergeFile {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		
-//		ExecutorService executor = Executors.newFixedThreadPool(5);
-//		for(int i = 1; i < 6; i++) {
-//			Runnable merge = new MergeThread(i,fileName, fileSize);
-//			executor.execute(merge);
-//		}
 	}
-
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String args[]) {
 		Scanner in = new Scanner(System.in);
 		System.out.println("Please enter the file name:");
