@@ -1,22 +1,21 @@
-
 import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 
-/** This part of the project is to merge 5 partitions of a file into one file, using 5 different threads.
- * 
+/** 
+ * This part of the project is to merge 5 partitions of a file into one file, using 5 different threads.
  * @author Minghao Shan
  * @version 10/24/2017
  */
-public class MergeFile {
+public class Merger {
 	static BufferedWriter writer;
 	static BufferedReader reader;
 	static String fileName;
 	static int fileSize;
 	/**
-	 * 
+	 * This method creates 5 threads and keeps the order of thread running.
 	 */
 	public static void createThreads() {
 		//create 5 threads
@@ -43,8 +42,7 @@ public class MergeFile {
 		}
 	}
 	/**
-	 * 
-	 * @param args
+	 * This is the main method
 	 */
 	public static void main(String args[]) {
 		Scanner in = new Scanner(System.in);
@@ -65,5 +63,6 @@ public class MergeFile {
 			e.printStackTrace();
 		}
 		in.close();
+		System.out.println("File is merged!");
 	}
 }
