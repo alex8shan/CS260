@@ -1,44 +1,39 @@
 import java.util.concurrent.locks.Condition;
-
+import java.util.concurrent.locks.ReentrantLock;
+/**
+ * This is a thread class that gets the fibonacci number and add the number to the fibonacci buffer.
+ * @author Minghao Shan
+ * @version 11/2/2017
+ */
 public class FibonacciThread implements Runnable {
 	int inputNum, numFibonacci;
-	static int [] fibonacciBuffer = new int[10];
-	static Condition fibonacciCondition = CheckThread.lock.newCondition();
-	
-	public FibonacciThread(int num) {
+	CircularBuffer fibonacciBuffer;
+	/**
+	 * Constructor
+	 * @param num		The user inputs
+	 * @param buffer	The buffer shared with prime thread
+	 */
+	public FibonacciThread(int num, CircularBuffer buffer) {
 		this.inputNum = num;
+		fibonacciBuffer = buffer;
 	}
+	/**
+	 * The handler method. At the end of the method(thread), 
+	 * -1 will be put into the fibonacci buffer.
+	 */
 	public void run() {
 		int a = 0;
 		int b = 1;
 		int i = 0;
 		while(a + b<inputNum) {
-			fibonacciBuffer[i] = b;
 			int temp = b;
 			b = a + b;
 			a = temp;
 			i++;
 			System.out.printf("Fibonacci: ");
 			System.out.println(b);
-			//increase the number of fibonacci
-			numFibonacci++;
-			// store Fibonacci into array.
-			fibonacciBuffer[numFibonacci % 10] = b;
-			if(fibonacciBuffer[0] != 0) {
-				PrimeThread.primeCondition.signal();
-				while (PrimeThread.primeBuffer[0] == 0) {
-					try {
-						fibonacciCondition.await();
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-				
-			}
+			fibonacciBuffer.putNum(b);
 		}
-	}
-	public boolean isFibonacci() {
-		return false;
+		fibonacciBuffer.putNum(-1);
 	}
 }
