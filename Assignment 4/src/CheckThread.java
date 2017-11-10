@@ -55,7 +55,7 @@ public class CheckThread implements Runnable {
 				if(fibonacci != 0 || fibonacci != -1) {
 					fibonacciList.add(fibonacci);
 				}
-				if(fibonacci == -1 && prime == -1) {
+				//if(PrimeThread.isAlive() && prime == -1) {
 					timer.cancel();
 				}
 				for(int i : primeList) {
@@ -76,7 +76,7 @@ public class CheckThread implements Runnable {
 
 					}
 				}
-			}	
+			}
 		}, 200, 200);
 		System.out.printf("The numbers that is both fibonacci and prime are:");
 		for(int i : resultList) {

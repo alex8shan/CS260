@@ -50,10 +50,12 @@ public class CircularBuffer {
 	 * @return 	The value to consume from the array.
 	 */
 	public int getNum(){
+		System.out.println("Getting Number");
 		int value = 0;
 		lock.lock();
 		try {
 			numExist=0;
+			//increase the count number for every non-zero number in the array
 			for(int i:circArray) {
 				if(i!=0) {
 					numExist++;
@@ -66,10 +68,7 @@ public class CircularBuffer {
 			e.printStackTrace();
 		} finally {
 			for(int i:circArray) {
-				if(i == -1) {
-					return -1;
-				}
-				if(i!=0 && i!= -1) {
+				if(i!=0) {
 					value = circArray[i];
 					i = 0;
 					break;
