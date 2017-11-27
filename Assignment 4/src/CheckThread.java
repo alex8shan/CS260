@@ -55,7 +55,7 @@ public class CheckThread implements Runnable {
 				if(fibonacci != 0 || fibonacci != -1) {
 					fibonacciList.add(fibonacci);
 				}
-				//if(PrimeThread.isAlive() && prime == -1) {
+				if(prime == -1) {
 					timer.cancel();
 				}
 				for(int i : primeList) {
