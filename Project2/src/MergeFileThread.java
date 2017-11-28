@@ -37,7 +37,6 @@ public class MergeFileThread extends Thread{
 				char data = (char) reader.read();
 				writer.write(data);
 			}
-			
 			reader.close();
 			writer.close();
 			

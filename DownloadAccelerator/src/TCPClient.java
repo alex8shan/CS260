@@ -14,20 +14,22 @@ public class TCPClient {
      * Create 5 threads and a Socket object in each thread
      */
     public void creatThreads(){
-
+    	for(int i = 0 ; i < 5; i++){
+    		
+    	}
     }
 
     /**
      *
      */
-    public void mergeFile(){
-
+    public void mergeFile(String fileName){
+    	
     }
 
     public static void main(String[] args) {
         System.out.println("Client start!");
 
         TCPClient client = new TCPClient();
-        client.mergeFile();
+        client.mergeFile("test.txt");
     }
 }
