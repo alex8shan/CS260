@@ -23,16 +23,21 @@ public class TCPClient {
 	/**
 	 * Create 5 threads and a Socket object in each thread
 	 */
-	public static void createThreads() {
+	public static void createThreads(String fileName) {
 		Thread[] clientThreads = new Thread [5];
 		int threadNum = 0;
 		for (Thread t : clientThreads) {
 			t = new Thread(new ClientThread(threadNum));
 			t.start();
-			t.join();
+			try {
+				t.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			threadNum ++;
 		}
-		mergeFile();//fileName
+		mergeFile(fileName);
 	}
 
 	/**
@@ -40,27 +45,31 @@ public class TCPClient {
      */
 	public static void mergeFile(String fileName) {
 		BufferedWriter writer;
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader(fileName + "_" + Integer.toString(threadIndex) + ".txt"));
-			writer = new BufferedWriter(new FileWriter(fileName + ".txt", true));
-			
-			//read character by character and write them
-			int fileSize = (int) Files.size(Paths.get(fileName + "_" + Integer.toString(threadIndex) + ".txt"));
-			for(int i = 0; i < (fileSize); i ++) {
-				char data = (char) reader.read();
-				writer.write(data);
-			}
-			reader.close();
-			writer.close();
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}	
+		for(int i = 0; i < 5 ; i ++) {
+			try {
+				BufferedReader reader = new BufferedReader(new FileReader("part (" + i + ") " + fileName));
+				writer = new BufferedWriter(new FileWriter(fileName, true));
+				
+				//read character by character and write them
+				int fileSize = (int) Files.size(Paths.get("part (" + i + ") " + fileName));
+				for(int j = 0; j < (fileSize); j ++) {
+					char data = (char) reader.read();
+					writer.write(data);
+				}
+				reader.close();
+				writer.close();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}	
+		}
 	}
 
 	public static void main(String[] args) {
+		String fileName = "test.txt";
+		
 		System.out.println("Client start!");
-		createThreads();
+		createThreads(fileName);
 		
 	}
 }

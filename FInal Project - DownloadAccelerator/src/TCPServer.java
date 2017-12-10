@@ -56,9 +56,9 @@ public class TCPServer {
 	 * Creates 5 thread and a ServerSocket in each thread
 	 */
 	public static void createThreads(String fileName) {
-		Thread[] ServerThreads = new Thread [5];
+		Thread[] serverThreads = new Thread [5];
 		int threadNum = 0;
-		for (Thread t : ServerThreads) {
+		for (Thread t : serverThreads) {
 			t = new Thread(new ServerThread(threadNum, fileName));
 			t.start();
 			threadNum ++;
@@ -66,18 +66,16 @@ public class TCPServer {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Server start! Please enter the file name! ");
-		Scanner in = new Scanner(System.in);
-		String fileName = in.nextLine();
+		System.out.println("Server start! ");
 		TCPServer server = new TCPServer();
 		// split the files
 		try {
-			server.splitFile(fileName + ".txt");
+			server.splitFile("test.txt");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		// create 5 threads
-		createThreads(fileName + ".txt");
+		createThreads("test.txt");
 	}
 }

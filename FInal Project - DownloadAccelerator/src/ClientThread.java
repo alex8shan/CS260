@@ -52,7 +52,7 @@ public class ClientThread implements Runnable{
     		data = new byte[bufferSize];
     		
     		//insert the path/name of your target file
-    		FileOutputStream fileOut = new FileOutputStream("movie.mkv",true);		
+    		FileOutputStream fileOut = new FileOutputStream("part (" + threadNum + ") ",true);		
     		
     		//now read the file coming from Server & save it onto disk
   
@@ -61,8 +61,6 @@ public class ClientThread implements Runnable{
     		{
     			//read bufferSize number of bytes from Server
     			int readBytes = inStream.read(data,0,bufferSize);
-    			int stringLength = inStream.read(data);
-    			something = inStream.read(data, stringLength)
 
     			byte[] arrayBytes = new byte[readBytes];
     			System.arraycopy(data, 0, arrayBytes, 0, readBytes);
