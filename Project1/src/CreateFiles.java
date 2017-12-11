@@ -28,11 +28,11 @@ public class CreateFiles {
 	public static void main(String args[]) {
 		try {
 			createFiles(100);
-			createFiles(200);
-			createFiles(500);
-			createFiles(1024);
-			createFiles(2048);
-			createFiles(3096);
+			//createFiles(250);
+			//createFiles(500);
+			//createFiles(1024);
+			//createFiles(2048);
+			//createFiles(3096);
 		} catch (IOException e) {
 			System.err.println("Error creating or writing file.");
 		}
