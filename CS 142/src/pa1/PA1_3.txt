@@ -1,0 +1,7 @@
+Chaolun Feng
+PA1 Part 3: First Java Class
+
+Fact:Walt Disney himself was the voice of Mickey Mouse.
+
+Source:https://easyscienceforkids.com/mickey-mouse/
+Date retrieved: 04/03/2019

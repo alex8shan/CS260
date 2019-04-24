@@ -1,0 +1,14 @@
+Name: Chaolun Feng
+Programming Assignment: Flag
+
+How did you approach (get started with) this assignment?
+    I approached this assignment by identifying the shapes and the background color for each of them.
+What works and what doesn't work?
+    I do not understand this question.
+What problems did you encounter as you worked on this assignment?
+    I need to find a way to draw the triangles.
+What did you learn from this assignment? What would you do differently next time?
+    I learned how to use triangles. I am also more familar with the creating objects. I really do not like the comment being complicated and complex and it is not even standard.
+
+PS:I assume that I do not need to show calculation for each flag in this report since it is already shown in the comment of the 
+code. If you think I am missing it, feel free to take points off.

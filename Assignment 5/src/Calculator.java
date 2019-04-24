@@ -7,12 +7,12 @@ import javax.swing.*;
  */
 public class Calculator extends JFrame //implements ActionListener 
 {
-	private JButton buttons[] = new JButton[16];
-	private String captions[] = {"1","2","3","+",
-									"4","5","6","-",
-									"7","8","9","/",
-									"0","=","AC","*"};
-	private JPanel buttonPanel = (new JPanel(new GridLayout(4, 4)));
+	private JButton buttons[] = new JButton[24];
+	private String captions[] = {"1","2","3","+", "Sin", "Cos",
+									"4","5","6","-","Tan", "Csc",
+									"7","8","9","/","Sec", "Cot",
+									"0","=","AC","*","log()", "^2"};
+	private JPanel buttonPanel = (new JPanel(new GridLayout(4, 6)));
 	static JTextField output = new TextField(15);
 	
 	Container frame;
@@ -22,7 +22,7 @@ public class Calculator extends JFrame //implements ActionListener
 	public Calculator()
 	{
 		frame = getContentPane();
-		for (int count=0;count<16;count++)
+		for (int count=0;count<24;count++)
 		{
 			buttons[count] = new MyButton(captions[count]);
 			buttonPanel.add(buttons[count]);

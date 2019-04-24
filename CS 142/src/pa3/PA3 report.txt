@@ -1,0 +1,19 @@
+Name: Chaolun Feng
+Programming Assignment： Draw Tic-Tac-Toe Boards
+1. This assignment is very easy; I just followed instructions.
+
+2. When I followed the instructions, almost everything works.
+
+3. When I drew the board, I tried to create a NscRectangle like the last assignment, but decided using NscLine directly
+on the NscWindow.
+
+4. I leaned that directly adding lines to the window object can also accomplish the goal. I also really like that idea
+of separating the functionality of drawing a line into a method and I think that I would like to use that in my next
+assignment.
+
+Fields vs Local variable
+The reason NscWindow reference a field but NscLine reference are not, is because NscWindow is a unique object that every
+TicTacToeBoard object have to create; while NscLine is not unique and can be expanded if needed.
+
+The reason we are making NscWindow reference private is because of the idea of encapsulation. Making the NscWindow
+object public will make it accessible to everyone calling the TicTacToeBoard object.
